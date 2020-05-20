@@ -1,5 +1,5 @@
-import basic_backend
-import mvc_exceptions as mvc_exc
+import backEnd
+import exception as mvc_exc
 
 class ModelBasic(object):
 
@@ -16,22 +16,22 @@ class ModelBasic(object):
         self._item_type = new_item_type
 
     def create_item(self, name, price, quantity):
-        basic_backend.create_item(name, price, quantity)
+        backEnd.create_item(name, price, quantity)
 
     def create_items(self, items):
-        basic_backend.create_items(items)
+        backEnd.create_items(items)
 
     def read_item(self, name):
-        return basic_backend.read_item(name)
+        return backEnd.read_item(name)
 
     def read_items(self):
-        return basic_backend.read_items()
+        return backEnd.read_items()
 
     def update_item(self, name, price, quantity):
-        basic_backend.update_item(name, price, quantity)
+        backEnd.update_item(name, price, quantity)
 
     def delete_item(self, name):
-        basic_backend.delete_item(name)
+        backEnd.delete_item(name)
 class View(object):
 
     @staticmethod
@@ -163,6 +163,9 @@ class Controller(object):
             self.view.display_item_deletion(name)
         except mvc_exc.ItemNotStored as e:
             self.view.display_item_not_yet_stored_error(name, item_type, e)
+
+
+
 my_items = [
     {'name': 'bread', 'price': 0.5, 'quantity': 20},
     {'name': 'milk', 'price': 1.0, 'quantity': 10},

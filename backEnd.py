@@ -1,4 +1,4 @@
-import mvc_exceptions as mvc_exc
+import exception as mvc_exc
 items = list()
 def create_item(name, price, quantity):
     global items
