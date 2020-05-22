@@ -1,45 +1,43 @@
-import exception as mvc_exc
-items = list()
-def create_item(name, price, quantity):
-    global items
-    results = list(filter(lambda x: x['name'] == name, items))
+import uyariListesi as durum
+covidGlobalListe = list()
+def covidOlustur(ulke, vaka, gun):
+    global covidGlobalListe
+    results = list(filter(lambda x: x['ulke'] == ulke, covidGlobalListe))
     if results:
-        raise mvc_exc.ItemAlreadyStored('"{}" already stored!'.format(name))
+        raise durum.CovidKayitliUyarisi('Ekleme Hatası! Veri Tabanında "{}" ile Eşleşen En Az Bir Kayıt Bulundu.'.format(ulke))
     else:
-        items.append({'name': name, 'price': price, 'quantity': quantity})
-def create_items(app_items):
-    global items
-    items = app_items
-def read_item(name):
-    global items
-    myitems = list(filter(lambda x: x['name'] == name, items))
+        covidGlobalListe.append({'ulke': ulke, 'vaka': vaka, 'gun': gun})
+def covidListeOlustur(app_items):
+    global covidGlobalListe
+    covidGlobalListe = app_items
+def covidOku(ulke):
+    global covidGlobalListe
+    myitems = list(filter(lambda x: x['ulke'] == ulke, covidGlobalListe))
     if myitems:
         return myitems[0]
     else:
-        raise mvc_exc.ItemNotStored(
-            'Can\'t read "{}" because it\'s not stored'.format(name))
-def read_items():
-    global items
-    return [item for item in items]
-def update_item(name, price, quantity):
-    global items
-    # Python 3.x removed tuple parameters unpacking (PEP 3113), so we have to do it manually (i_x is a tuple, idxs_items is a list of tuples)
+        raise durum.CovidKayitliDegilUyarisi(
+            'Listeleme Hatası! Veri Tabanında "{}" ile Eşleşen Herhangi Bir Kayıt Bulunamadı.'.format(ulke))
+def covidListeOku():
+    global covidGlobalListe
+    return [item for item in covidGlobalListe]
+def covidDegistir(ulke, vaka, gun):
+    global covidGlobalListe
     idxs_items = list(
-        filter(lambda i_x: i_x[1]['name'] == name, enumerate(items)))
+        filter(lambda i_x: i_x[1]['ulke'] == ulke, enumerate(covidGlobalListe)))
     if idxs_items:
         i, item_to_update = idxs_items[0][0], idxs_items[0][1]
-        items[i] = {'name': name, 'price': price, 'quantity': quantity}
+        covidGlobalListe[i] = {'ulke': ulke, 'vaka': vaka, 'gun': gun}
     else:
-        raise mvc_exc.ItemNotStored(
-            'Can\'t update "{}" because it\'s not stored'.format(name))
-def delete_item(name):
-    global items
-    # Python 3.x removed tuple parameters unpacking (PEP 3113), so we have to do it manually (i_x is a tuple, idxs_items is a list of tuples)
+        raise durum.CovidKayitliDegilUyarisi(
+            'Güncelleme Hatası! Veri Tabanında "{}" ile Eşleşen Herhangi Bir Kayıt Bulunamadı.'.format(ulke))
+def covidSil(ulke):
+    global covidGlobalListe
     idxs_items = list(
-        filter(lambda i_x: i_x[1]['name'] == name, enumerate(items)))
+        filter(lambda i_x: i_x[1]['ulke'] == ulke, enumerate(covidGlobalListe)))
     if idxs_items:
         i, item_to_delete = idxs_items[0][0], idxs_items[0][1]
-        del items[i]
+        del covidGlobalListe[i]
     else:
-        raise mvc_exc.ItemNotStored(
-            'Can\'t delete "{}" because it\'s not stored'.format(name))
+        raise durum.CovidKayitliDegilUyarisi(
+            'Silme Hatası! Veri Tabanında "{}" ile Eşleşen Herhangi Bir Kayıt Bulunamadı.'.format(ulke))

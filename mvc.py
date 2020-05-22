@@ -1,177 +1,188 @@
 import backEnd
-import exception as mvc_exc
+import uyariListesi as durum
 
 class ModelBasic(object):
 
-    def __init__(self, application_items):
-        self._item_type = 'product'
-        self.create_items(application_items)
+    def __init__(self, covidModel):
+        self._item_type = 'covid19'
+        self.covidListeOlustur(covidModel)
 
     @property
     def item_type(self):
         return self._item_type
 
     @item_type.setter
-    def item_type(self, new_item_type):
-        self._item_type = new_item_type
+    def item_type(self, covidYeniTip):
+        self._item_type = covidYeniTip
 
-    def create_item(self, name, price, quantity):
-        backEnd.create_item(name, price, quantity)
+    def covidOlustur(self, ulke, vaka, gun):
+        backEnd.covidOlustur(ulke, vaka, gun)
 
-    def create_items(self, items):
-        backEnd.create_items(items)
+    def covidListeOlustur(self, items):
+        backEnd.covidListeOlustur(items)
 
-    def read_item(self, name):
-        return backEnd.read_item(name)
+    def covidOku(self, ulke):
+        return backEnd.covidOku(ulke)
 
-    def read_items(self):
-        return backEnd.read_items()
+    def covidListeOku(self):
+        return backEnd.covidListeOku()
 
-    def update_item(self, name, price, quantity):
-        backEnd.update_item(name, price, quantity)
+    def covidDegistir(self, ulke, vaka, gun):
+        backEnd.covidDegistir(ulke, vaka, gun)
 
-    def delete_item(self, name):
-        backEnd.delete_item(name)
+    def covidSil(self, ulke):
+        backEnd.covidSil(ulke)
 class View(object):
 
     @staticmethod
-    def show_bullet_point_list(item_type, items):
-        print('--- {} LIST ---'.format(item_type.upper()))
+    def yildizliListeGoster(item_type, items):
+        print('=' * 100)
+        print('=== {} LİSTE ==='.format(item_type.upper()))
         for item in items:
             print('* {}'.format(item))
+        print('=' * 100)
 
     @staticmethod
-    def show_number_point_list(item_type, items):
-        print('--- {} LIST ---'.format(item_type.upper()))
+    def sayisalListeGoster(item_type, items):
+        print('=' * 100)
+        print('=== {} LİSTE ==='.format(item_type.upper()))
         for i, item in enumerate(items):
             print('{}. {}'.format(i+1, item))
 
+        print('=' * 100)
     @staticmethod
-    def show_item(item_type, item, item_info):
-        print('//////////////////////////////////////////////////////////////')
-        print('Good news, we have some {}!'.format(item.upper()))
-        print('{} INFO: {}'.format(item_type.upper(), item_info))
-        print('//////////////////////////////////////////////////////////////')
+    def covidGoster(item_type, item, item_info):
+        print('='*100)
+        print('Tebrikler!, {} Veri Tabanı ile Eşleşti. İşte Bilgiler!'.format(item.upper()))
+        print('{} DETAY: {}'.format(item_type.upper(), item_info))
+        print('=' * 100)
 
     @staticmethod
-    def display_missing_item_error(item, err):
-        print('**************************************************************')
-        print('We are sorry, we have no {}!'.format(item.upper()))
+    def covidEksikHataGoster(item, err):
+        print('='*100)
+        print('Üzgünüm!, Veri Tabanında "{}" ile Eşleşen Herhangi Bir Kayıt Bulunamadı.'.format(item.upper()))
         print('{}'.format(err.args[0]))
-        print('**************************************************************')
+        print('='*100)
 
     @staticmethod
-    def display_item_already_stored_error(item, item_type, err):
-        print('**************************************************************')
-        print('Hey! We already have {} in our {} list!'
-              .format(item.upper(), item_type))
+    def covidFazlaHataGoster(item, item_type, err):
+        print('='*100)
+        print('Üzgünüm!, {} Veri Tabanı Listesinde "{}" ile Eşleşen Zaten Bir Kayıt Var.'
+              .format(item_type,item.upper()))
         print('{}'.format(err.args[0]))
-        print('**************************************************************')
+        print('='*100)
 
     @staticmethod
-    def display_item_not_yet_stored_error(item, item_type, err):
-        print('**************************************************************')
-        print('We don\'t have any {} in our {} list. Please insert it first!'
-              .format(item.upper(), item_type))
+    def covidKayitYokHataGoster(item, item_type, err):
+        print('=' * 100)
+        print('Üzgünüm!, {} Veri Tabanı Listesinde "{}" ile Eşleşen Herhangi Bir Kayıt Bulunamadı.'
+              .format(item_type,item.upper()))
         print('{}'.format(err.args[0]))
-        print('**************************************************************')
+        print('=' * 100)
 
     @staticmethod
-    def display_item_stored(item, item_type):
-        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-        print('Hooray! We have just added some {} to our {} list!'
+    def covidKayitBasariliGoster(item, item_type):
+        print('=' * 100)
+        print('Tebrikler! {} Veri Tabanı Listesinde "{}" Kaydı Başarı İle Eklendi.'
               .format(item.upper(), item_type))
-        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+        print('='*100)
 
     @staticmethod
-    def display_change_item_type(older, newer):
-        print('---   ---   ---   ---   ---   ---   ---   ---   ---   ---   --')
-        print('Change item type from "{}" to "{}"'.format(older, newer))
-        print('---   ---   ---   ---   ---   ---   ---   ---   ---   ---   --')
+    def covidTipGuncellemBasariliGoster(older, newer):
+        print('='*100)
+        print('Tebrikler!,  Veri Tabanı Listesinde "{}" ile "{}" Kaydı Başarı İle Değiştirildi.'.format(older, newer))
+        print('='*100)
 
     @staticmethod
-    def display_item_updated(item, o_price, o_quantity, n_price, n_quantity):
-        print('---   ---   ---   ---   ---   ---   ---   ---   ---   ---   --')
-        print('Change {} price: {} --> {}'
-              .format(item, o_price, n_price))
-        print('Change {} quantity: {} --> {}'
-              .format(item, o_quantity, n_quantity))
-        print('---   ---   ---   ---   ---   ---   ---   ---   ---   ---   --')
+    def covidIcerikGuncellemBasariliGoster(item, o_vaka, o_gun, n_vaka, n_gun):
+        print('='*100)
+        print('Tebrikler!, Güncelleme Başarılı. {} Eski Vaka Sayısı: {} Yeni Vaka Sayısı: {}'
+              .format(item, o_vaka, n_vaka))
+        print('Tebrikler!, Güncelleme Başarılı. {} Eski Gün Sayısı: {} Yeni Gün Sayısı: {}'
+              .format(item, o_gun, n_gun))
+        print('='*100)
 
     @staticmethod
-    def display_item_deletion(name):
-        print('--------------------------------------------------------------')
-        print('We have just removed {} from our list'.format(name))
-        print('--------------------------------------------------------------')
+    def covidSilmeBasariliGoster(ulke):
+        print('=' * 100)
+        print('Tebrikler!, "{}" Silme İşlemi Başarılı.'.format(ulke))
+        print('='*100)
 class Controller(object):
 
     def __init__(self, model, view):
         self.model = model
         self.view = view
 
-    def show_items(self, bullet_points=False):
-        items = self.model.read_items()
+    def covidListeGoster(self, sayisalListe=False):
+        items = self.model.covidListeOku()
         item_type = self.model.item_type
-        if bullet_points:
-            self.view.show_bullet_point_list(item_type, items)
+        if sayisalListe:
+            self.view.yildizliListeGoster(item_type, items)
         else:
-            self.view.show_number_point_list(item_type, items)
+            self.view.sayisalListeGoster(item_type, items)
 
-    def show_item(self, item_name):
+    def covidGoster(self, item_ulke):
         try:
-            item = self.model.read_item(item_name)
+            item = self.model.covidOku(item_ulke)
             item_type = self.model.item_type
-            self.view.show_item(item_type, item_name, item)
-        except mvc_exc.ItemNotStored as e:
-            self.view.display_missing_item_error(item_name, e)
+            self.view.covidGoster(item_type, item_ulke, item)
+        except durum.CovidKayitliDegilUyarisi as e:
+            self.view.covidEksikHataGoster(item_ulke, e)
 
-    def insert_item(self, name, price, quantity):
-        assert price > 0, 'price must be greater than 0'
-        assert quantity >= 0, 'quantity must be greater than or equal to 0'
+    def covidEkle(self, ulke, vaka, gun):
+        assert vaka >= 0, 'VAKA SAYISI EN AZ 0 OLABİLİR'
+        assert gun >= 1, 'VAKA SAYISI EN AZ 1 OLABİLİR'
         item_type = self.model.item_type
         try:
-            self.model.create_item(name, price, quantity)
-            self.view.display_item_stored(name, item_type)
-        except mvc_exc.ItemAlreadyStored as e:
-            self.view.display_item_already_stored_error(name, item_type, e)
+            self.model.covidOlustur(ulke, vaka, gun)
+            self.view.covidKayitBasariliGoster(ulke, item_type)
+        except durum.CovidKayitliUyarisi as e:
+            self.view.covidFazlaHataGoster(ulke, item_type, e)
 
-    def update_item(self, name, price, quantity):
-        assert price > 0, 'price must be greater than 0'
-        assert quantity >= 0, 'quantity must be greater than or equal to 0'
+    def covidGuncelle(self, ulke, vaka, gun):
+        assert vaka >= 0, 'VAKA SAYISI EN AZ 0 OLABİLİR'
+        assert gun >= 1, 'VAKA SAYISI EN AZ 1 OLABİLİR'
         item_type = self.model.item_type
 
         try:
-            older = self.model.read_item(name)
-            self.model.update_item(name, price, quantity)
-            self.view.display_item_updated(
-                name, older['price'], older['quantity'], price, quantity)
-        except mvc_exc.ItemNotStored as e:
-            self.view.display_item_not_yet_stored_error(name, item_type, e)
-            # if the item is not yet stored and we performed an update, we have
-            # 2 options: do nothing or call insert_item to add it.
-            # self.insert_item(name, price, quantity)
+            self.model.covidDegistir(ulke, vaka, gun)
+            older = self.model.covidOku(ulke)
+            self.view.covidIcerikGuncellemBasariliGoster(
+                ulke, older['vaka'], older['gun'], vaka, gun)
+        except durum.CovidKayitliDegilUyarisi as e:
+            self.view.covidKayitYokHataGoster(ulke, item_type, e)
+            # burada eğer güncellenecek ülke yoksa yeniden ekletedebilrdik
 
-    def update_item_type(self, new_item_type):
+    def covidGuncelle_type(self, covidYeniTip):
         old_item_type = self.model.item_type
-        self.model.item_type = new_item_type
-        self.view.display_change_item_type(old_item_type, new_item_type)
+        self.model.item_type = covidYeniTip
+        self.view.covidTipGuncellemBasariliGoster(old_item_type, covidYeniTip)
 
-    def delete_item(self, name):
+    def covidSil(self, ulke):
         item_type = self.model.item_type
         try:
-            self.model.delete_item(name)
-            self.view.display_item_deletion(name)
-        except mvc_exc.ItemNotStored as e:
-            self.view.display_item_not_yet_stored_error(name, item_type, e)
+            self.model.covidSil(ulke)
+            self.view.covidSilmeBasariliGoster(ulke)
+        except durum.CovidKayitliDegilUyarisi as e:
+            self.view.covidKayitYokHataGoster(ulke, item_type, e)
 
 
+if __name__ == "__main__":
+    covidDatabase = [
+        {'ulke': 'tr', 'vaka': 1500, 'gun': 11},
+        {'ulke': 'abd', 'vaka': 20000, 'gun': 55},
+        {'ulke': 'de', 'vaka': 2345, 'gun': 22},
+    ]
 
-my_items = [
-    {'name': 'bread', 'price': 0.5, 'quantity': 20},
-    {'name': 'milk', 'price': 1.0, 'quantity': 10},
-    {'name': 'ref', 'price': 10.0, 'quantity': 5},
-]
+    c = Controller(ModelBasic(covidDatabase), View())
+    c.covidListeGoster()
+    c.covidListeGoster(sayisalListe=True)
+    c.covidGoster('tr')
+    c.covidEkle('kktc', vaka=23, gun=5)
+    c.covidEkle('kktc', vaka=23, gun=5)
+    c.covidGuncelle('tr', vaka=134, gun=22)
+    c.covidGuncelle('tr1', vaka=134, gun=22)
+    c.covidSil('kktc')
+    c.covidSil('nl')
 
-c = Controller(ModelBasic(my_items), View())
 
-c.show_item('ref')
