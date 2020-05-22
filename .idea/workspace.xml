@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b79ac3e3-b5b7-4dd7-8ced-b6d88c6c997b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/uyariListesi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd.py" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exception.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc.py" beforeDir="false" afterPath="$PROJECT_DIR$/mvc.py" afterDir="false" />
-    </list>
+    <list default="true" id="b79ac3e3-b5b7-4dd7-8ced-b6d88c6c997b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +17,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backEnd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="32" column="94" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="94" />
+            <state relative-caret-position="216">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
+                <element signature="e#94#368#0" />
+                <element signature="e#407#463#0" />
+                <element signature="e#488#753#0" />
+                <element signature="e#779#849#0" />
+                <element signature="e#890#1298#0" />
                 <element signature="e#1323#1692#0" />
               </folding>
             </state>
@@ -33,12 +32,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uyariListesi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="25" selection-start-column="6" selection-end-column="25" />
+              <folding>
+                <element signature="e#42#46#0" />
+                <element signature="e#95#99#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+            <state relative-caret-position="81">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#76#826#0" />
                 <element signature="e#116#186#0" />
                 <element signature="e#235#257#0" />
                 <element signature="e#328#358#0" />
@@ -48,7 +61,25 @@
                 <element signature="e#640#670#0" />
                 <element signature="e#726#764#0" />
                 <element signature="e#804#826#0" />
+                <element signature="e#852#4079#0" />
+                <element signature="e#921#1088#0" />
+                <element signature="e#1162#1351#0" />
+                <element signature="e#1427#1625#0" />
+                <element signature="e#1694#1882#0" />
+                <element signature="e#1962#2176#0" />
+                <element signature="e#2259#2487#0" />
+                <element signature="e#2566#2737#0" />
+                <element signature="e#2820#2976#0" />
+                <element signature="e#3084#3395#0" />
+                <element signature="e#3463#3572#0" />
+                <element signature="e#4111#6400#0" />
                 <element signature="e#4152#4195#0" />
+                <element signature="e#4257#4490#0" />
+                <element signature="e#4538#4808#0" />
+                <element signature="e#4860#5253#0" />
+                <element signature="e#5309#5889#0" />
+                <element signature="e#5947#6106#0" />
+                <element signature="e#6146#6400#0" />
               </folding>
             </state>
           </provider>
@@ -84,6 +115,7 @@
       <find>covidKayitYokHataGoster</find>
       <find>Please insert it first!</find>
       <find>covidGuncelle</find>
+      <find>INFO:d</find>
     </findStrings>
     <replaceStrings>
       <replace>ulke</replace>
@@ -101,6 +133,7 @@
       <replace>durum</replace>
       <replace>covidListeGoster</replace>
       <replace>covidDegistir</replace>
+      <replace>100</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -120,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="22" />
     <option name="width" value="1137" />
@@ -232,18 +265,18 @@
       <option name="presentableId" value="Default" />
       <updated>1589536732190</updated>
       <workItem from="1589536733362" duration="1560000" />
-      <workItem from="1589970980260" duration="11411000" />
+      <workItem from="1589970980260" duration="12597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12971000" />
+    <option name="totallyTimeSpent" value="14157000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="22" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -257,7 +290,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3290461" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.072883174" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -285,29 +318,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uyariListesi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backEnd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="32" column="94" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="94" />
-          <folding>
-            <element signature="e#1323#1692#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mvc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+        <state relative-caret-position="81">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#76#826#0" />
             <element signature="e#116#186#0" />
             <element signature="e#235#257#0" />
             <element signature="e#328#358#0" />
@@ -317,7 +334,51 @@
             <element signature="e#640#670#0" />
             <element signature="e#726#764#0" />
             <element signature="e#804#826#0" />
+            <element signature="e#852#4079#0" />
+            <element signature="e#921#1088#0" />
+            <element signature="e#1162#1351#0" />
+            <element signature="e#1427#1625#0" />
+            <element signature="e#1694#1882#0" />
+            <element signature="e#1962#2176#0" />
+            <element signature="e#2259#2487#0" />
+            <element signature="e#2566#2737#0" />
+            <element signature="e#2820#2976#0" />
+            <element signature="e#3084#3395#0" />
+            <element signature="e#3463#3572#0" />
+            <element signature="e#4111#6400#0" />
             <element signature="e#4152#4195#0" />
+            <element signature="e#4257#4490#0" />
+            <element signature="e#4538#4808#0" />
+            <element signature="e#4860#5253#0" />
+            <element signature="e#5309#5889#0" />
+            <element signature="e#5947#6106#0" />
+            <element signature="e#6146#6400#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backEnd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#94#368#0" />
+            <element signature="e#407#463#0" />
+            <element signature="e#488#753#0" />
+            <element signature="e#779#849#0" />
+            <element signature="e#890#1298#0" />
+            <element signature="e#1323#1692#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uyariListesi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="6" selection-end-column="25" />
+          <folding>
+            <element signature="e#42#46#0" />
+            <element signature="e#95#99#0" />
           </folding>
         </state>
       </provider>
